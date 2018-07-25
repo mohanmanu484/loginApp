@@ -6,7 +6,9 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-mongoose.connect('mongodb://127.0.0.1:27017/example');
+var connection = "mongodb://heroku_wrhtd67t:v645ic3b3nuvpjc1r07rkbgofv@ds247191.mlab.com:47191/heroku_wrhtd67t";
+
+mongoose.connect(connection);
 
 //mongodb://127.0.0.1:27017
 
