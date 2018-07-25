@@ -64,6 +64,14 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get("/poems"function(req, res) {
+  res.json({
+    "hi": "mohan"
+  });
+})
+
+
+
 router.post('/login',
   passport.authenticate('basic', {
     session: false
