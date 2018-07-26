@@ -9,9 +9,29 @@ const User = new Schema({
     }
   },
   password: String,
-  firstName: String,
-  lastName: String,
-  phoneNumber: String
+  name: String,
+  poems: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Poem'
+  }],
+  bookmarks: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Poem'
+  }],
+  likes: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Poem'
+  }],
+  followers: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  following: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
+}, {
+  timestamps: true
 });
 
 

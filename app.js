@@ -6,8 +6,9 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var connection = "mongodb://heroku_wrhtd67t:v645ic3b3nuvpjc1r07rkbgofv@ds247191.mlab.com:47191/heroku_wrhtd67t";
-
+var morgan = require('morgan')
+//var connection = "mongodb://heroku_wrhtd67t:v645ic3b3nuvpjc1r07rkbgofv@ds247191.mlab.com:47191/heroku_wrhtd67t";
+var connection = "mongodb://127.0.0.1:27017/example";
 mongoose.connect(connection);
 
 //mongodb://127.0.0.1:27017
@@ -16,7 +17,7 @@ mongoose.connect(connection);
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/index');
-var poemsRouter = require('./routes/index');
+var poemsRouter = require('./routes/poem');
 
 var app = express();
 
@@ -51,12 +52,13 @@ app.use(passport.initialize());
 app.use('/', indexRouter);
 app.use('/register', loginRouter);
 app.use('/users', usersRouter);
-app.use('/poems', poemsRouter);
+app.use('/', poemsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+app.use(morgan('combined'));
 
 // error handler
 app.use(function(err, req, res, next) {

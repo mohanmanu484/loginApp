@@ -10,10 +10,17 @@ var PoemSchema = Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  createdTime: {
-    type: Date,
-    default: Date.now
-  }
+  views: Number,
+  likes: Number,
+  comments: [{
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    comment: String
+  }]
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Poem', PoemSchema);
