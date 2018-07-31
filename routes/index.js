@@ -5,6 +5,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var BasicStrategy = require('passport-http').BasicStrategy;
 const User = require('../model/User');
 var bodyParser = require('body-parser');
+var jwt = require('jsonwebtoken');
 var app = express();
 
 
@@ -70,8 +71,23 @@ router.post('/login',
     session: false
   }),
   function(req, res) {
-    console.log(req.user);
-    res.json(req.user);
+
+    var payload = {
+      "name": req.user.name,
+      "password": req.user.password
+    };
+
+    var aa = app.get('abcd');
+    if (aa === undefined) {
+      aa = 'somesecretkey';
+    }
+    console.log(aa);
+    var token = jwt.sign(payload, aa);
+    //  console.log("token " + token);
+    var respObj = req.user.toObject();
+    respObj.token = token;
+    console.log(respObj);
+    res.json(respObj);
   });
 
 router.post('/register', urlencodedParser, function(req, res, next) {

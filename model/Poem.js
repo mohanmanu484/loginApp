@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
+const comment = require('./comment.js');
 var Schema = mongoose.Schema;
-var bcrypt = require('bcryptjs');
-
-
+var CommentSchema = mongoose.model('Comment').schema;
 var PoemSchema = Schema({
   title: String,
   text: String,
@@ -12,13 +11,7 @@ var PoemSchema = Schema({
   },
   views: Number,
   likes: Number,
-  comments: [{
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    },
-    comment: String
-  }]
+  comments: [CommentSchema]
 }, {
   timestamps: true
 });

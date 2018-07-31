@@ -1,0 +1,17 @@
+db.users.update({_id:ObjectId("5b5827d38f36ac6e964548fb")},{$addToSet:{"poems":ObjectId("5b5827d38f3ac6e964578fba")}},true)
+
+db.poems.insert({title:"secondName",text:"dfghj dfghj fgh",
+author:ObjectId("5b5827d38f36ac6e964548fb")});
+
+router.get('/poems/:id', function(req, res, next) {
+
+  Poem.findOneAndUpdate({
+    _id: req.params.id
+  }, req.body, function(err, poem) {
+    if (err) {
+      return res.json(err);
+    }
+    res.json(poem);
+  });
+
+});
