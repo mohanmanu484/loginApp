@@ -5,8 +5,8 @@ const View = require('../model/View');
 const User = require('../model/User');
 var bodyParser = require('body-parser');
 var app = express();
-var redis = require('redis');
-var client = redis.createClient();
+//var redis = require('redis');
+/*var client = redis.createClient();
 
 client.on('connect', function() {
   console.log('Redis client connected');
@@ -14,7 +14,7 @@ client.on('connect', function() {
 
 client.on('error', function(err) {
   console.log('Something went wrong ' + err);
-});
+});*/
 
 
 // create application/json parser
@@ -32,7 +32,7 @@ var urlencodedParser = bodyParser.urlencoded({
   function(req, res) {
     console.log(req.user);
     res.json(req.user);
-  });*/
+  });
 
 
 router.get('/redis', function(req, res, next) {
@@ -46,7 +46,7 @@ router.get('/redis', function(req, res, next) {
     console.log('GET result ->' + result);
   });
 
-});
+});*/
 
 
 router.get('/poems', function(req, res, next) {
