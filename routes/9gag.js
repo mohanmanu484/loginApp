@@ -65,9 +65,10 @@ router.post('/:tag/', function(req, res) {
       var imagesObj = post.images;
 
 
-      if (imagesObj && (imagesObj.image460svwm || imagesObj.image460sv)) {
+      if (imagesObj && (imagesObj.image460sv)) {
 
-        downloadObj.url = imagesObj.image460svwm.url || imagesObj.image460sv.url;
+        downloadObj.url = imagesObj.image460sv.url;
+        console.log(downloadObj.url);
       }
 
       if (!downloadObj.url) {

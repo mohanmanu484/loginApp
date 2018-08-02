@@ -153,7 +153,7 @@ var upload = function(callback) {
       docs.forEach(function(doc) {
 
 
-        var fileName = doc.fileId || doc._id;
+        var fileName = doc._id;
         console.log("file name is " + fileName);
         var ext = doc.url.split('/').pop().split('.').pop();
         var title = doc.title || "test";
@@ -324,7 +324,7 @@ router.get('/download', urlencodedParser, function(req, res, next) {
         var filename = str.split('/').pop();
         var ext = filename.split('.').pop();
 
-        filename = (data.fileId) + "." + ext;
+        filename = (data._id) + "." + ext;
         console.log('Downloading ' + filename);
         download(str, "public/downloads/" + filename, function() {
           console.log('Finished Downloading ' + filename)
