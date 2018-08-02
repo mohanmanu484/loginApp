@@ -153,14 +153,14 @@ var upload = function(callback) {
       docs.forEach(function(doc) {
 
 
-        var fileName = doc._id;
+        var fileName = data.fileId || doc._id;
         console.log("file name is " + fileName);
         var ext = doc.url.split('/').pop().split('.').pop();
         var title = doc.title || "test";
 
         var userInfo = {
           name: "shahsi",
-          user_uuid: "fa63ec51-f03e-4989-8e82-0fe72fae5d82"
+          user_uuid: "b7a5d111-40ae-4625-90ce-3cdcf12cc775"
         }
         var hastagsArr = ["#funny", "#whatsApp", "#whatsApp", "#glamour", "#status", "#filmy"];
         var hashtags = doc.tags.toString() || hastagsArr[getRandom(5)] + "," + hastagsArr[getRandom(5)] + "," + hastagsArr[getRandom(5)];
@@ -178,7 +178,7 @@ var upload = function(callback) {
           isVideoRecordedFromApp: false,
           pixelSize: "1080x1350",
           title: title,
-          user_uuid: "fa63ec51-f03e-4989-8e82-0fe72fae5d82",
+          user_uuid: "b7a5d111-40ae-4625-90ce-3cdcf12cc775",
           videoFilePath: "/storage/emulated/0/WhatsApp/Media/" + fileName + "." + ext,
           userInfo: userInfo
         };
@@ -324,7 +324,7 @@ router.get('/download', urlencodedParser, function(req, res, next) {
         var filename = str.split('/').pop();
         var ext = filename.split('.').pop();
 
-        filename = (data._id) + "." + ext;
+        filename = (data.fileId || data._id) + "." + ext;
         console.log('Downloading ' + filename);
         download(str, "public/downloads/" + filename, function() {
           console.log('Finished Downloading ' + filename)
