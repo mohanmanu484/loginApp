@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var morgan = require('morgan');
+const fileUpload = require('express-fileupload');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 //var connection = "mongodb://heroku_wrhtd67t:v645ic3b3nuvpjc1r07rkbgofv@ds247191.mlab.com:47191/heroku_wrhtd67t";
 var connection = "mongodb://127.0.0.1:27017/example";
@@ -20,6 +21,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/index');
 var poemsRouter = require('./routes/poem');
+var ninegagRouter = require('./routes/9gag');
 
 var app = express();
 var apiRoutes = express.Router();
@@ -41,6 +43,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+app.use(fileUpload());
+
 
 /*app.configure(function() {
   //  app.use(express.static('public'));
@@ -60,6 +64,7 @@ app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use('/api/', apiRoutes);
 app.use('/api', poemsRouter);
+app.use('/add', ninegagRouter);
 
 
 // catch 404 and forward to error handler

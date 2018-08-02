@@ -10,8 +10,52 @@ router.get('/poems/:id', function(req, res, next) {
   }, req.body, function(err, poem) {
     if (err) {
       return res.json(err);
+
+
     }
     res.json(poem);
   });
 
+});
+
+db.downloads.insertMany([{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633664_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633665_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633666_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633667_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633668_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633669_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_69023179628756336610_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_69023179628756336611_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_69023179628756336612_n.mp4","download":0,"upload":0,},{"url":"https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_69023179628756336613_n.mp4","download":0,"upload":0,}])
+
+db.downloads.insertMany([{"url":"https://img-9gag-fun.9cache.com/photo/awXjmWB_460svh265.mp4","download":0,"upload":0,},{"url":"https://img-9gag-fun.9cache.com/photo/aOrE40v_460sv.mp4","download":0,"upload":0,},{"url":"https://img-9gag-fun.9cache.com/photo/a7Mge7L_460svh265.mp4","download":0,"upload":0,}]);
+
+
+return;
+var urlList = ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/anc.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/tyu.jpg",
+  "https://instagram.fblr4-2.fna.fbcdn.net/vp/82387dfbb94b9e2129e1b05438775c6e/5B65248C/t50.2886-16/37891769_238716630095594_6902317962875633664_n.mp4",
+  "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_3436007728386932736_n.mp4",
+  "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_3436007728386932737_n.mp4",
+  "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_3436007728386932738_n.mp4",
+  "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_3436007728386932739_n.mp4"
+
+  /*  "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_34360077283869327310_n.mp4",
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_34360077283869327311_n.mp4",
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_34360077283869327312_n.mp4",
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_34360077283869327313_n.mp4",
+
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_3436007728386932714_n.mp4",
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_343600772838693273715_n.mp4",
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_343600772838693273816_n.mp4",
+    "https://instagram.fblr4-2.fna.fbcdn.net/vp/5a5972c2593cac5003d170981335179e/5B649E8A/t50.2886-16/37733262_1812139262186375_343600772838693273917_n.mp4"*/
+]
+
+var size = urlList.length;
+var count = 0;
+urlList.forEach(function(data) {
+  console.log(data);
+  var str = data.url;
+  var filename = str.split('/').pop();
+  console.log('Downloading ' + filename);
+  download(str, "downloads/" + filename, function() {
+    console.log('Finished Downloading ' + filename)
+    count = count + 1;
+    if (count == size) {
+      res.redirect('http://localhost:3000/upload');
+      console.log("finished everything");
+    }
+  });
 });
